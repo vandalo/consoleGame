@@ -1,5 +1,6 @@
 #include "MyStd\MyString.h"
 #include <stdio.h>
+#include "MyLog.h"
 
 MyString::MyString()
 	: m_size(0)
@@ -85,7 +86,7 @@ void MyString::push_back(char value)
 
 MyString::~MyString()
 {
-	IOStream::cout << "Removing string..." << *this << IOStream::endl;
+	LOG(1, "Removing string...");
 }
 
 char& MyString::operator[](int pos) const

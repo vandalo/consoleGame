@@ -54,6 +54,12 @@
     <ClInclude Include="Game\ModuleInput.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="MyStd\MyLog.h">
+      <Filter>MyStd</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceFiles\Defines.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -82,6 +88,9 @@
     </ClCompile>
     <ClCompile Include="Game\ModuleInput.cpp">
       <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="MyStd\MyLog.cpp">
+      <Filter>MyStd</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

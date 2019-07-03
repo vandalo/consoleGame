@@ -4,7 +4,6 @@
 #include "stdafx.h"
 #include "SourceFiles/Application.h"
 
-
 int main()
 {
 	Application* application = new Application();

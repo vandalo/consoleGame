@@ -8,7 +8,7 @@ public:
 	ModuleInput();
 
 	void CheckInput();
-	MyVector<MyString> GetArgs();
+	MyVector<MyString>& GetArgs();
 	bool Quit();
 
 private:

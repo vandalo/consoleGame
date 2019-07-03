@@ -1,5 +1,10 @@
 #include "ModuleInput.h"
 
+namespace ModuleInputInternal
+{
+	const MyString QUIT("quit");
+}
+
 ModuleInput::ModuleInput()
 	:m_exit(false)
 {}
@@ -42,7 +47,7 @@ void ModuleInput::CheckInput()
 		}
 	}
 
-	if (m_args.size() > 0 && m_args[0] == "quit")
+	if (m_args.size() > 0 && m_args[0] == ModuleInputInternal::QUIT)
 	{
 		m_exit = true;
 	}
@@ -60,7 +65,7 @@ void ModuleInput::CheckInput()
 	}
 }
 
-MyVector<MyString> ModuleInput::GetArgs()
+MyVector<MyString>& ModuleInput::GetArgs()
 {
 	return m_args;
 }
