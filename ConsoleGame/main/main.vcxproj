@@ -150,17 +150,23 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\CGameObject.h" />
+    <ClInclude Include="Game\CRoom.h" />
     <ClInclude Include="MyStd\MyAssert.h" />
     <ClInclude Include="MyStd\MyIOStream.h" />
+    <ClInclude Include="MyStd\MyString.h" />
     <ClInclude Include="MyStd\MyVector.h" />
     <ClInclude Include="SourceFiles\Application.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\CGameObject.cpp" />
+    <ClCompile Include="Game\CRoom.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyStd\MyAssert.cpp" />
     <ClCompile Include="MyStd\MyIOStream.cpp" />
+    <ClCompile Include="MyStd\MyString.cpp" />
     <ClCompile Include="SourceFiles\Application.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>

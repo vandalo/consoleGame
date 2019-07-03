@@ -8,41 +8,73 @@ class MyVector
 public:
 	MyVector();
 	~MyVector();
+	MyVector(const MyVector& other);
+	void operator=(const MyVector& other);
 
 	MyVector(int size, T defaultValue);
-	int size();
+	int size() const;
 	T* push_back(T newObject);
 	void pop_back();
 
 	T* begin();
 	T* end();
-	T& operator[](int pos);
+	T& operator[](int pos) const;
 
 private:
 	void resize();
 
+	void copyDataFromOther(const MyVector& other);
+
 	int m_realSize;
 	int m_size;
-	T* m_vector;
+	T* m_vector = nullptr;
 };
 
 template <class T>
-T& MyVector<T>::operator[](int pos)
+void MyVector<T>::copyDataFromOther(const MyVector& other)
+{
+	ASSERT(m_vector == nullptr, 1, "Only call this function in constructors")
+	m_vector = new T[other.m_realSize];
+	for (int i = 0; i < other.m_realSize; ++i)
+	{
+		m_vector[i] = other.m_vector[i];
+	}
+}
+
+template <class T>
+void MyVector<T>::operator=(const MyVector& other)
+{
+	m_realSize = other.m_realSize;
+	m_size = other.m_size;
+	copyDataFromOther(other);
+}
+
+template <class T>
+T& MyVector<T>::operator[](int pos) const
 {
 	if (pos <= m_size)
 	{
 		return m_vector[pos];
 	}
-	ASSERT(1, "MyVector out of memory");
+	ASSERT(false, 1, "MyVector out of memory");
 	return m_vector[pos];
 }
 
 template <class T>
 MyVector<T>::MyVector() : 
-	m_realSize(1)
+	m_realSize(0)
 	, m_size(0)
 {
 	m_vector = new T[m_realSize];
+}
+
+
+template <class T>
+MyVector<T>::MyVector(const MyVector& other) 
+	: m_realSize(other.m_realSize)
+	, m_size(other.m_size)
+{
+	copyDataFromOther(other);
 }
 
 template <class T>
@@ -60,7 +92,7 @@ MyVector<T>::MyVector(int size, T defaultValue) :
 }
 
 template <class T>
-int MyVector<T>::size()
+int MyVector<T>::size() const
 {
 	return m_size;
 }
@@ -86,7 +118,7 @@ void MyVector<T>::pop_back()
 	}
 	else
 	{
-		ASSERT(1, "MyVector was empty");
+		ASSERT(false, 1, "MyVector was empty");
 	}
 }
 
@@ -105,6 +137,10 @@ T* MyVector<T>::end()
 template <class T>
 void MyVector<T>::resize()
 {
+	if (m_realSize == 0)
+	{
+		m_realSize = 1;
+	}
 	T* new_vector = new T[m_realSize * 2];
 	for (int i = 0; i < m_realSize; ++i)
 	{

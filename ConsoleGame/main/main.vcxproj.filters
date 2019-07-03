@@ -16,6 +16,9 @@
     <Filter Include="MyStd">
       <UniqueIdentifier>{c41d0837-a014-4f29-a000-9d5eab79a1aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{5e5d1641-195e-4fd4-94fe-005fd8248378}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -39,6 +42,15 @@
     <ClInclude Include="MyStd\MyAssert.h">
       <Filter>MyStd</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CGameObject.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CRoom.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="MyStd\MyString.h">
+      <Filter>MyStd</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -54,6 +66,15 @@
       <Filter>MyStd</Filter>
     </ClCompile>
     <ClCompile Include="MyStd\MyAssert.cpp">
+      <Filter>MyStd</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CGameObject.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CRoom.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="MyStd\MyString.cpp">
       <Filter>MyStd</Filter>
     </ClCompile>
   </ItemGroup>

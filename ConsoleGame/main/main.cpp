@@ -8,7 +8,7 @@
 int main()
 {
 	Application* application = new Application();
-
+	application->Init();
 	while (application->update());
     return 0;
 }
