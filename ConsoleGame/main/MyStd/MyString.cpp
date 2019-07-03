@@ -2,36 +2,29 @@
 #include <stdio.h>
 
 MyString::MyString()
+	: m_size(0)
 {
 	m_string.push_back('\0');
 }
 
 MyString::MyString(char* string)
+	: m_size(0)
 {
 	m_string.push_back('\0');
 	for (int i = 0; i < string[i] != '\0'; ++i)
 	{
-		m_string.push_back(string[i]);
+		push_back(string[i]);
 	}
 }
 
 MyString::MyString(const MyString& other)
+	: m_size(0)
 {
 	m_string.push_back('\0');
 	for (int i = 0; i < other.size(); ++i)
 	{
-		m_string.push_back(other.m_string[i]);
+		push_back(other.m_string[i]);
 	}
-}
-
-MyString::~MyString()
-{
-	IOStream::cout << "Removing string..." << *this << IOStream::endl;
-}
-
-char& MyString::operator[](int pos) const
-{
-	return m_string[pos];
 }
 
 char& MyString::operator+=(char* value)
@@ -45,13 +38,63 @@ char& MyString::operator+=(char* value)
 
 char& MyString::operator+=(char value)
 {
-	m_string.push_back(value);
+	push_back(value);
 	return m_string[m_string.size() - 1];
+}
+
+char& MyString::operator=(char* value)
+{
+	m_string.clear();
+	m_string.push_back('\0');
+	for (int i = 0; value[i] != '\0'; ++i)
+	{
+		push_back(value[i]);
+	}
+	return m_string[m_string.size() - 1];
+}
+
+
+char& MyString::operator=(char value)
+{
+	m_string.push_back('\0');
+	push_back(value);
+	return m_string[m_string.size() - 1];
+}
+
+char& MyString::operator=(MyString value)
+{
+	m_string.clear();
+	m_string.push_back('\0');
+	for (int i = 0; value[i] != '\0'; ++i)
+	{
+		push_back(value[i]);
+	}
+	return m_string[m_string.size() - 1];
+}
+
+void MyString::push_back(char value)
+{
+	if (value != '\0')
+	{
+		m_string[m_size] = value;
+		++m_size;
+	}
+	m_string.push_back('\0');
+}
+
+MyString::~MyString()
+{
+	IOStream::cout << "Removing string..." << *this << IOStream::endl;
+}
+
+char& MyString::operator[](int pos) const
+{
+	return m_string[pos];
 }
 
 int MyString::size() const
 {
-	return m_string.size();
+	return m_size;
 }
 
 void MyString::pop_back()

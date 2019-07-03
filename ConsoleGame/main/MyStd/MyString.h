@@ -14,8 +14,12 @@ public:
 	char& operator[](int pos) const;
 	char& operator+=(char* value);
 	char& operator+=(char value);
+	char& operator=(char* value);
+	char& operator=(char value);
+	char& operator=(MyString value);
 
 	int size() const;
+	void push_back(char value);
 	void pop_back();
 
 	friend IOStream::MyIOSTream& operator<<(IOStream::MyIOSTream& cout, const MyString& myString);

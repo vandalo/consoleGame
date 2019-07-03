@@ -146,14 +146,21 @@ void MyVector<T>::resize()
 {
 	if (m_realSize == 0)
 	{
-		m_realSize = 1;
+		m_realSize = 2;
+		m_size = 0;
+		T* new_vector = new T[m_realSize];
+		delete[] m_vector;
+		m_vector = new_vector;
 	}
-	T* new_vector = new T[m_realSize * 2];
-	for (int i = 0; i < m_realSize; ++i)
+	else
 	{
-		new_vector[i] = m_vector[i];
+		T* new_vector = new T[m_realSize * 2];
+		for (int i = 0; i < m_realSize; ++i)
+		{
+			new_vector[i] = m_vector[i];
+		}
+		m_realSize *= 2;
+		delete[] m_vector;
+		m_vector = new_vector;
 	}
-	delete[] m_vector;
-	m_realSize *= 2;
-	m_vector = new_vector;
 }

@@ -21,7 +21,6 @@ bool Application::update()
 	CheckInput();
 	for (auto& gameObject : m_gameObjects)
 	{
-
 		gameObject->Update();
 	}
 	return true;
@@ -65,10 +64,10 @@ void Application::CheckInput()
 		}
 	}
 
-	if (m_args.size() > 0 /*&& m_args[0] == "quit"*/)
+	/*if (m_args.size() > 0 && m_args[0] == "quit")
 		//QuitGameFlag
 	{
-	}
+	}*/
 	if (m_args.size() > 0)
 	{
 		//Read Command
