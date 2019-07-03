@@ -18,25 +18,26 @@ bool Application::Init()
 
 bool Application::update()
 {
-	//CheckInput();
+	CheckInput();
 	for (auto& gameObject : m_gameObjects)
 	{
+
 		gameObject->Update();
 	}
 	return true;
 }
 
-/*void ParseInput(const MyString& line, MyVector<MyString>& arguments)
+void Application::ParseInput()
 {
-	for (unsigned int i = 0; i < line.size(); ++i) {
+	for (int i = 0; i < m_currentArg.size(); ++i) {
 		MyString token = "";
-		while (line[i] != ' ' && i < line.size()) {
-			token += line[i];
+		while (m_currentArg[i] != ' ' && i < m_currentArg.size()) {
+			token += m_currentArg[i];
 			++i;
 		}
-		arguments.push_back(token);
+		m_args.push_back(token);
 	}
-}*/
+}
 
 void Application::CheckInput()
 {
@@ -45,20 +46,40 @@ void Application::CheckInput()
 		char key = _getch();
 		if (key == '\b') // backspace
 		{
-			/*if (sizeof(m_currentArg)/sizeof(char) > 0)
+			if (m_currentArg.size() > 0)
 			{
-				m_currentArg[]
-			}*/
+				m_currentArg.pop_back();
+				IOStream::cout << '\b';
+				IOStream::cout << " ";
+				IOStream::cout << '\b';
+			}
 		}
 		else if (key != '\r') // return
 		{
-			/*player_input += key;
-			cout << key;*/
+			m_currentArg += key;
+			IOStream::cout << key;
 		}
 		else {
-			/*cout << "\n";
-			ParseInput(player_input, args);*/
+			IOStream::cout << "\n";
+			ParseInput();
 		}
+	}
+
+	if (m_args.size() > 0 /*&& m_args[0] == "quit"*/)
+		//QuitGameFlag
+	{
+	}
+	if (m_args.size() > 0)
+	{
+		//Read Command
+		/*if (ReadComand(args) == false)
+		{
+			cout << "NoCommand\n";
+		}
+		*/
+		m_args.clear();
+		m_currentArg = "";
+		IOStream::cout << IOStream::endl << "> ";
 	}
 }
 

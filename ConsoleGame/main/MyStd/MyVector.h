@@ -15,6 +15,7 @@ public:
 	int size() const;
 	T* push_back(T newObject);
 	void pop_back();
+	void clear();
 
 	T* begin();
 	T* end();
@@ -29,6 +30,12 @@ private:
 	int m_size;
 	T* m_vector = nullptr;
 };
+
+template <class T>
+void MyVector<T>::clear()
+{
+	m_size = 0;
+}
 
 template <class T>
 void MyVector<T>::copyDataFromOther(const MyVector& other)

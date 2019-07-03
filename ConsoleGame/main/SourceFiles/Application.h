@@ -11,10 +11,11 @@ public:
 
 	bool Init();
 	bool update();
+	void ParseInput();
 	void CheckInput();
 
 private:
 	MyVector<CGameObject*> m_gameObjects;
-	MyVector<char*> m_args;
+	MyVector<MyString> m_args;
 	MyString m_currentArg;
 };

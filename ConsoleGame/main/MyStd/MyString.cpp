@@ -3,11 +3,12 @@
 
 MyString::MyString()
 {
-
+	m_string.push_back('\0');
 }
 
 MyString::MyString(char* string)
 {
+	m_string.push_back('\0');
 	for (int i = 0; i < string[i] != '\0'; ++i)
 	{
 		m_string.push_back(string[i]);
@@ -16,7 +17,8 @@ MyString::MyString(char* string)
 
 MyString::MyString(const MyString& other)
 {
-	for (int i = 0; i < other.m_string[i] != '\0'; ++i)
+	m_string.push_back('\0');
+	for (int i = 0; i < other.size(); ++i)
 	{
 		m_string.push_back(other.m_string[i]);
 	}
@@ -50,6 +52,11 @@ char& MyString::operator+=(char value)
 int MyString::size() const
 {
 	return m_string.size();
+}
+
+void MyString::pop_back()
+{
+	m_string.pop_back();
 }
 
 IOStream::MyIOSTream& operator<<(IOStream::MyIOSTream& cout, const MyString& myString)
