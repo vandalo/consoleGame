@@ -1,5 +1,6 @@
 #include "CGameObject.h"
 #include "MyStd\MyString.h"
+#include "MyStd\MyLog.h"
 
 CGameObject::CGameObject()
 {}
@@ -11,7 +12,7 @@ CGameObject::CGameObject(MyString name, MyString info) :
 
 CGameObject::~CGameObject()
 {
-	IOStream::cout << "Removing gameObject: " << GetName() << IOStream::endl;
+	LOG(2, "Destroy gameObject...");
 }
 
 bool CGameObject::Update()
