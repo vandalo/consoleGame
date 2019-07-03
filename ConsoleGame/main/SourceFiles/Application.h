@@ -1,8 +1,8 @@
 #pragma once
 
-#include <MyStd\MyVector.h>
-#include <Game\CGameObject.h>
-#include <MyStd\MyString.h>
+#include "MyStd\MyVector.h"
+#include "Game\CGameObject.h"
+#include "MyStd\MyString.h"
 #include "Game\ModuleInput.h"
 
 class Application

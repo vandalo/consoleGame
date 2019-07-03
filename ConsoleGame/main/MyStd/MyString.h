@@ -1,7 +1,7 @@
 #pragma once
 
-#include <MyStd\MyVector.h>
-#include <MyStd\MyIOStream.h>
+#include "MyStd\MyVector.h"
+#include "MyStd\MyIOStream.h"
 
 class MyString
 {

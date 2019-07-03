@@ -1,4 +1,4 @@
-#include <MyStd\MyString.h>
+#include "MyStd\MyString.h"
 #include <stdio.h>
 
 MyString::MyString()

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Game\CGameObject.h>
+#include "Game\CGameObject.h"
 #include "MyStd\MyString.h"
 
 class CRoom : public CGameObject

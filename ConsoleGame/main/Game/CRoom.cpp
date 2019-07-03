@@ -1,4 +1,5 @@
-#include <Game\CRoom.h>
+#include "Game\CRoom.h"
+#include "MyStd\MyString.h"
 
 CRoom::CRoom(MyString name, MyString info) : CGameObject(name, info)
 {}

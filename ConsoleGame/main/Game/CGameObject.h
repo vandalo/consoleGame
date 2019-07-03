@@ -1,6 +1,6 @@
 #pragma once
 
-#include <MyStd\MyVector.h>
+#include "MyStd\MyVector.h"
 #include "MyStd\MyString.h"
 
 class CGameObject
