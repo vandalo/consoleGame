@@ -153,9 +153,16 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\ActionGo.h" />
+    <ClInclude Include="Game\ActionLook.h" />
+    <ClInclude Include="Game\CActionManager.h" />
     <ClInclude Include="Game\CGameObject.h" />
-    <ClInclude Include="Game\CRoom.h" />
+    <ClInclude Include="Game\ComponentPlayer.h" />
+    <ClInclude Include="Game\ComponentRoom.h" />
+    <ClInclude Include="Game\IAction.h" />
+    <ClInclude Include="Game\IComponent.h" />
     <ClInclude Include="Game\ModuleInput.h" />
+    <ClInclude Include="Game\ModuleRender.h" />
     <ClInclude Include="MyStd\MyAssert.h" />
     <ClInclude Include="MyStd\MyIOStream.h" />
     <ClInclude Include="MyStd\MyLog.h" />
@@ -167,9 +174,16 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\ActionGo.cpp" />
+    <ClCompile Include="Game\ActionLook.cpp" />
+    <ClCompile Include="Game\CActionManager.cpp" />
     <ClCompile Include="Game\CGameObject.cpp" />
-    <ClCompile Include="Game\CRoom.cpp" />
+    <ClCompile Include="Game\ComponentPlayer.cpp" />
+    <ClCompile Include="Game\ComponentRoom.cpp" />
+    <ClCompile Include="Game\IAction.cpp" />
+    <ClCompile Include="Game\IComponent.cpp" />
     <ClCompile Include="Game\ModuleInput.cpp" />
+    <ClCompile Include="Game\ModuleRender.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyStd\MyAssert.cpp" />
     <ClCompile Include="MyStd\MyIOStream.cpp" />

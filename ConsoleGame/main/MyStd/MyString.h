@@ -9,6 +9,7 @@ public:
 	MyString();
 	~MyString();
 	MyString(char* string);
+	MyString(const char* string);
 	MyString(const MyString& string);
 
 	char& operator[](int pos) const;
@@ -18,12 +19,14 @@ public:
 	char& operator=(char value);
 	char& operator=(MyString value);
 	bool operator==(MyString value);
+	MyString& operator+(MyString value);
 
 	int size() const;
 	void push_back(char value);
 	void pop_back();
 
 	friend IOStream::MyIOSTream& operator<<(IOStream::MyIOSTream& cout, const MyString& myString);
+	const char* c_str() const;
 
 private:
 	void clear();

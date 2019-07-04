@@ -19,7 +19,10 @@ public:
 
 	T* begin();
 	T* end();
+	const T* begin() const;
+	const T* end() const;
 	T& operator[](int pos) const;
+	const T* data() const;
 
 private:
 	void resize();
@@ -32,8 +35,29 @@ private:
 };
 
 template <class T>
+const T* MyVector<T>::end() const
+{
+	return &m_vector[m_size];
+}
+
+template <class T>
+const T* MyVector<T>::begin() const
+{
+	return m_vector;
+}
+
+template <class T>
+const T* MyVector<T>::data() const
+{
+	return m_vector;
+}
+
+template <class T>
 void MyVector<T>::clear()
 {
+	delete[] m_vector;
+	m_vector = nullptr;
+	m_realSize = 0;
 	m_size = 0;
 }
 
@@ -51,6 +75,7 @@ void MyVector<T>::copyDataFromOther(const MyVector& other)
 template <class T>
 void MyVector<T>::operator=(const MyVector& other)
 {
+	clear();
 	m_realSize = other.m_realSize;
 	m_size = other.m_size;
 	copyDataFromOther(other);

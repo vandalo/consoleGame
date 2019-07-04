@@ -1,6 +1,7 @@
 #include "CGameObject.h"
 #include "MyStd\MyString.h"
 #include "MyStd\MyLog.h"
+#include "Game\IComponent.h"
 
 CGameObject::CGameObject()
 {}
@@ -12,6 +13,11 @@ CGameObject::CGameObject(MyString name, MyString info) :
 
 CGameObject::~CGameObject()
 {
+	for (const auto& component : m_components)
+	{
+		delete component;
+	}
+
 	LOG(2, "Destroy gameObject...");
 }
 
@@ -28,5 +34,10 @@ MyString CGameObject::GetName()
 MyString CGameObject::GetInfo()
 {
 	return m_info;
+}
+
+void CGameObject::AddComponent(IComponent* component)
+{
+	m_components.push_back(component);
 }
 

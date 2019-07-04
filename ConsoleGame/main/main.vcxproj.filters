@@ -19,6 +19,15 @@
     <Filter Include="Game">
       <UniqueIdentifier>{5e5d1641-195e-4fd4-94fe-005fd8248378}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Actions">
+      <UniqueIdentifier>{20431fd5-ea31-461c-b87c-877db4c366d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Component">
+      <UniqueIdentifier>{5ffc74f5-a5cb-4c8a-a643-3665dfdc06fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Modules">
+      <UniqueIdentifier>{e906bc96-84d3-4149-87e4-318504ac5e26}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -45,20 +54,41 @@
     <ClInclude Include="Game\CGameObject.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\CRoom.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="MyStd\MyString.h">
       <Filter>MyStd</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\ModuleInput.h">
-      <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="MyStd\MyLog.h">
       <Filter>MyStd</Filter>
     </ClInclude>
     <ClInclude Include="SourceFiles\Defines.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CActionManager.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ComponentPlayer.h">
+      <Filter>Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ModuleRender.h">
+      <Filter>Game\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ModuleInput.h">
+      <Filter>Game\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\IComponent.h">
+      <Filter>Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ComponentRoom.h">
+      <Filter>Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\IAction.h">
+      <Filter>Game\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ActionLook.h">
+      <Filter>Game\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ActionGo.h">
+      <Filter>Game\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -80,17 +110,38 @@
     <ClCompile Include="Game\CGameObject.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\CRoom.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="MyStd\MyString.cpp">
       <Filter>MyStd</Filter>
     </ClCompile>
-    <ClCompile Include="Game\ModuleInput.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="MyStd\MyLog.cpp">
       <Filter>MyStd</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CActionManager.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ComponentPlayer.cpp">
+      <Filter>Game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ModuleInput.cpp">
+      <Filter>Game\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ModuleRender.cpp">
+      <Filter>Game\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\IComponent.cpp">
+      <Filter>Game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ComponentRoom.cpp">
+      <Filter>Game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ActionLook.cpp">
+      <Filter>Game\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\IAction.cpp">
+      <Filter>Game\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ActionGo.cpp">
+      <Filter>Game\Actions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

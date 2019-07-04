@@ -5,9 +5,7 @@ namespace ModuleInputInternal
 	const MyString QUIT("quit");
 }
 
-ModuleInput::ModuleInput()
-	:m_exit(false)
-{}
+ModuleInput::ModuleInput(){}
 
 void ModuleInput::ParseInput()
 {
@@ -21,48 +19,36 @@ void ModuleInput::ParseInput()
 	}
 }
 
-void ModuleInput::CheckInput()
+void ModuleInput::ClearArgs()
 {
+	m_args.clear();
+	m_currentArg = "";
+	//IOStream::cout << IOStream::endl << "> ";
+}
+
+bool ModuleInput::CheckInput()
+{
+	bool isKbHit = false;
 	if (_kbhit() != 0)
 	{
 		char key = _getch();
+		isKbHit = (key != '\0');
 		if (key == '\b') // backspace
 		{
 			if (m_currentArg.size() > 0)
 			{
 				m_currentArg.pop_back();
-				IOStream::cout << '\b';
-				IOStream::cout << " ";
-				IOStream::cout << '\b';
 			}
 		}
 		else if (key != '\r') // return
 		{
 			m_currentArg += key;
-			IOStream::cout << key;
 		}
 		else {
-			IOStream::cout << "\n";
 			ParseInput();
 		}
 	}
-
-	if (m_args.size() > 0 && m_args[0] == ModuleInputInternal::QUIT)
-	{
-		m_exit = true;
-	}
-	if (m_args.size() > 0)
-	{
-		//Read Command
-		/*if (ReadComand(args) == false)
-		{
-		cout << "NoCommand\n";
-		}
-		*/
-		m_args.clear();
-		m_currentArg = "";
-		IOStream::cout << IOStream::endl << "> ";
-	}
+	return isKbHit;
 }
 
 MyVector<MyString>& ModuleInput::GetArgs()
@@ -70,7 +56,7 @@ MyVector<MyString>& ModuleInput::GetArgs()
 	return m_args;
 }
 
-bool ModuleInput::Quit()
+MyString& ModuleInput::GetCurrentInput()
 {
-	return m_exit;
+	return m_currentArg;
 }

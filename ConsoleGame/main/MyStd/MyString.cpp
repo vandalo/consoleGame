@@ -28,6 +28,9 @@ MyString::MyString(const MyString& other)
 	}
 }
 
+MyString::MyString(const char* string) : MyString(const_cast<char*>(string))
+{}
+
 char& MyString::operator+=(char* value)
 {
 	for (int i = 0; i < sizeof(value); ++i)
@@ -41,6 +44,15 @@ char& MyString::operator+=(char value)
 {
 	push_back(value);
 	return m_string[m_string.size() - 1];
+}
+
+MyString& MyString::operator+(MyString value)
+{
+	for (const auto& elem : value.m_string)
+	{
+		m_string.push_back(elem);
+	}
+	return *this;
 }
 
 char& MyString::operator=(char* value)
@@ -119,6 +131,12 @@ int MyString::size() const
 void MyString::pop_back()
 {
 	m_string.pop_back();
+	--m_size;
+}
+
+const char* MyString::c_str() const
+{
+	return m_string.data();
 }
 
 void MyString::clear()

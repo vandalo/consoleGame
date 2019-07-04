@@ -7,14 +7,15 @@ class ModuleInput
 public:
 	ModuleInput();
 
-	void CheckInput();
+	bool CheckInput();
 	MyVector<MyString>& GetArgs();
-	bool Quit();
+	MyString& GetCurrentInput();
+	void ClearArgs();
 
 private:
 	void ParseInput();
 
-	bool m_exit;
 	MyVector<MyString> m_args;
 	MyString m_currentArg;
+
 };

@@ -13,3 +13,15 @@ void MyLog::log( int logLevel, const char* text, const char* fileName, int fileL
 		}
 	}
 }
+
+void MyLog::log(int logLevel, MyString text, const char* fileName, int fileLine)
+{
+	if (logLevel <= LOG_LEVEL)
+	{
+		IOStream::cout << "LOG:" << text << IOStream::endl;
+		if (LOG_VERBOSE)
+		{
+			IOStream::cout << "File: " << fileName << " - Line:" << fileLine << IOStream::endl;
+		}
+	}
+}
