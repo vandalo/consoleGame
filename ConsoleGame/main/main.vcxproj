@@ -169,7 +169,9 @@
     <ClInclude Include="MyStd\MyString.h" />
     <ClInclude Include="MyStd\MyVector.h" />
     <ClInclude Include="SourceFiles\Application.h" />
+    <ClInclude Include="Game\ComponentLook.h" />
     <ClInclude Include="SourceFiles\Defines.h" />
+    <ClInclude Include="SourceFiles\Singleton.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -190,6 +192,7 @@
     <ClCompile Include="MyStd\MyLog.cpp" />
     <ClCompile Include="MyStd\MyString.cpp" />
     <ClCompile Include="SourceFiles\Application.cpp" />
+    <ClCompile Include="Game\ComponentLook.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,6 +1,7 @@
 #include "Game\ComponentRoom.h"
 
 #include <typeinfo>
+#include "Game\CGameObject.h"
 
 
 ComponentRoom::ComponentRoom(CGameObject& gameObject)

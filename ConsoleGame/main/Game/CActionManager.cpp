@@ -14,16 +14,16 @@ CActionManager::CActionManager()
 
 }
 
-const MyVector<MyString>& CActionManager::ParseAction(MyVector<MyString> args)
+const MyVector<MyString>& CActionManager::ParseAction(MyVector<MyString>& args)
 {
 	m_lastOutput.clear();
 	if (args[0] == CActionManagerInternal::LOOK)
 	{
-		m_lastOutput = m_look.DoAction();
+		m_lastOutput = m_look.DoAction(args);
 	}
 	else if (args[0] == CActionManagerInternal::GO)
 	{
-		m_lastOutput = m_go.DoAction();
+		m_lastOutput = m_go.DoAction(args);
 	}
 	else
 	{

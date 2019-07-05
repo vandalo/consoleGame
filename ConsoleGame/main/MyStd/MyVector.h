@@ -10,6 +10,7 @@ public:
 	~MyVector();
 	MyVector(const MyVector& other);
 	void operator=(const MyVector& other);
+	void operator+=(const MyVector& other);
 
 	MyVector(int size, T defaultValue);
 	int size() const;
@@ -79,6 +80,15 @@ void MyVector<T>::operator=(const MyVector& other)
 	m_realSize = other.m_realSize;
 	m_size = other.m_size;
 	copyDataFromOther(other);
+}
+
+template <class T>
+void MyVector<T>::operator+=(const MyVector& other)
+{
+	for (const auto& elem : other)
+	{
+		push_back(elem);
+	}
 }
 
 template <class T>

@@ -9,7 +9,7 @@ class CActionManager
 {
 public:
 	CActionManager();
-	const MyVector<MyString>& ParseAction(MyVector<MyString> args);
+	const MyVector<MyString>& ParseAction(MyVector<MyString>& args);
 	const MyVector<MyString>& GetLastActionResult() const;
 
 private:

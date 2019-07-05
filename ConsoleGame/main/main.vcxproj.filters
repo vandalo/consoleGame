@@ -63,9 +63,6 @@
     <ClInclude Include="SourceFiles\Defines.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\CActionManager.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Game\ComponentPlayer.h">
       <Filter>Game\Component</Filter>
     </ClInclude>
@@ -89,6 +86,15 @@
     </ClInclude>
     <ClInclude Include="Game\ActionGo.h">
       <Filter>Game\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceFiles\Singleton.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CActionManager.h">
+      <Filter>Game\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ComponentLook.h">
+      <Filter>Game\Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -116,9 +122,6 @@
     <ClCompile Include="MyStd\MyLog.cpp">
       <Filter>MyStd</Filter>
     </ClCompile>
-    <ClCompile Include="Game\CActionManager.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Game\ComponentPlayer.cpp">
       <Filter>Game\Component</Filter>
     </ClCompile>
@@ -142,6 +145,12 @@
     </ClCompile>
     <ClCompile Include="Game\ActionGo.cpp">
       <Filter>Game\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CActionManager.cpp">
+      <Filter>Game\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ComponentLook.cpp">
+      <Filter>Game\Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

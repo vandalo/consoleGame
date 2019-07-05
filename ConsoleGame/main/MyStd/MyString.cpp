@@ -50,7 +50,7 @@ MyString& MyString::operator+(MyString value)
 {
 	for (const auto& elem : value.m_string)
 	{
-		m_string.push_back(elem);
+		push_back(elem);
 	}
 	return *this;
 }

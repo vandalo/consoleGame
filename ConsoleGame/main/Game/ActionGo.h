@@ -7,6 +7,6 @@ class ActionGo : public IAction
 {
 public:
 	ActionGo();
-	MyVector<MyString> DoAction();
+	MyVector<MyString> DoAction(MyVector<MyString>& args);
 
 };

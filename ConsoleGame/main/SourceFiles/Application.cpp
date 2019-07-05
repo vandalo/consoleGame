@@ -4,24 +4,17 @@
 #include "Game\ComponentRoom.h"
 #include "Game\ComponentPlayer.h"
 #include "Game\CGameObject.h"
+#include "Game\ComponentLook.h"
 
 Application::Application()
 	: m_player(nullptr)
+	, m_currentRoom(nullptr)
 {}
 
 bool Application::Init()
 {
-	//Create player
-	CGameObject* player = new CGameObject("Me", "You see yourself, you are very handsome");
-	ComponentPlayer* componentPlayer = new ComponentPlayer(*player);
-	player->AddComponent(componentPlayer);
-	m_gameObjects.push_back(player);
-	m_player = componentPlayer;
-
-	CGameObject* room = new CGameObject("Test", "This is a test");
-	room->AddComponent(new ComponentRoom(*room));
-	m_gameObjects.push_back(room);
-	m_currentRoom = room;
+	InitPlayer();
+	InitRooms();
 
 	m_moduleRender.Render(m_player->GetGameObject(), m_moduleInput.GetCurrentInput(), m_actionManager.GetLastActionResult());
 	return true;
@@ -49,5 +42,52 @@ bool Application::update()
 	}
 
 	return true;
+}
+
+CGameObject& Application::GetPlayer()
+{
+	return m_player->GetGameObject();
+}
+
+CGameObject& Application::GetCurrentRoom()
+{
+	return m_currentRoom->GetGameObject();
+}
+
+void Application::InitPlayer()
+{
+	//Create player
+	CGameObject* player = new CGameObject("me");
+
+	ComponentPlayer* componentPlayer = new ComponentPlayer(*player);
+	player->AddComponent(componentPlayer);
+
+	ComponentLook* componentLookPlayer = new ComponentLook(*player, "You see yourself, you are very handsome", false);
+	player->AddComponent(componentLookPlayer);
+
+	m_gameObjects.push_back(player);
+	m_player = componentPlayer;
+}
+
+void Application::InitRooms()
+{
+	//Create Rooms
+	CGameObject* room = new CGameObject("Test");
+
+	ComponentRoom* componentRoom = new ComponentRoom(*room);
+	room->AddComponent(componentRoom);
+
+	ComponentLook* componentLookRoom = new ComponentLook(*room, "You are in a test room", true);
+	room->AddComponent(componentLookRoom);
+
+	m_gameObjects.push_back(room);
+	m_currentRoom = componentRoom;
+
+	CGameObject* lamp = new CGameObject("lamp");
+
+	ComponentLook* componentLookObject = new ComponentLook(*lamp, "You see an oil Lamp", false);
+	lamp->AddComponent(componentLookObject);
+
+	room->AddGameObject(lamp);
 }
 

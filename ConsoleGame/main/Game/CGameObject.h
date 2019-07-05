@@ -11,11 +11,11 @@ class CGameObject
 public:
 	CGameObject();
 	~CGameObject();
-	CGameObject(MyString name, MyString info);
+	CGameObject(MyString name);
 	virtual bool Update();
 	MyString GetName();
-	MyString GetInfo();
 	void AddComponent(IComponent* component);
+	void AddGameObject(CGameObject* object);
 
 	template <class T>
 	T& GetComponent();
@@ -26,11 +26,13 @@ public:
 	template <class T>
 	bool HasComponent() const;
 
+	CGameObject* Find(MyString name);
+	MyVector<CGameObject*> GetGameObjects();
+
 private:
-	MyVector<CGameObject> m_gameObjects;
+	MyVector<CGameObject*> m_gameObjects;
 	MyVector<IComponent*> m_components;
 	MyString m_name;
-	MyString m_info;
 };
 
 template <class T>

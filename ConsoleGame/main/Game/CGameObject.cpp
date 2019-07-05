@@ -6,9 +6,8 @@
 CGameObject::CGameObject()
 {}
 
-CGameObject::CGameObject(MyString name, MyString info) :
+CGameObject::CGameObject(MyString name) :
 	m_name(name)
-	, m_info(info)
 {}
 
 CGameObject::~CGameObject()
@@ -31,13 +30,30 @@ MyString CGameObject::GetName()
 	return m_name;
 }
 
-MyString CGameObject::GetInfo()
-{
-	return m_info;
-}
-
 void CGameObject::AddComponent(IComponent* component)
 {
 	m_components.push_back(component);
+}
+
+void CGameObject::AddGameObject(CGameObject* object)
+{
+	m_gameObjects.push_back(object);
+}
+
+CGameObject* CGameObject::Find(MyString name)
+{
+	for (const auto& object : m_gameObjects)
+	{
+		if (object->GetName() == name)
+		{
+			return object;
+		}
+	}
+	return nullptr;
+}
+
+MyVector<CGameObject*> CGameObject::GetGameObjects()
+{
+	return m_gameObjects;
 }
 

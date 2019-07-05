@@ -3,7 +3,7 @@
 ActionGo::ActionGo()
 {}
 
-MyVector<MyString> ActionGo::DoAction()
+MyVector<MyString> ActionGo::DoAction(MyVector<MyString>& args)
 {
 	MyVector<MyString> output;
 	output.push_back(MyString("You are moving to...!"));
