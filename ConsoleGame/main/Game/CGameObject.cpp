@@ -40,6 +40,11 @@ void CGameObject::AddGameObject(CGameObject* object)
 	m_gameObjects.push_back(object);
 }
 
+void CGameObject::RemoveGameObject(CGameObject* object)
+{
+	m_gameObjects.remove(&object);
+}
+
 CGameObject* CGameObject::Find(MyString name)
 {
 	for (const auto& object : m_gameObjects)

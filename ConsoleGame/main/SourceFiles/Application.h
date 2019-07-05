@@ -20,6 +20,7 @@ public:
 	bool Init();
 	bool update();
 	CGameObject& GetPlayer();
+	ComponentPlayer& GetPlayerComponent();
 	CGameObject& GetCurrentRoom();
 
 private:

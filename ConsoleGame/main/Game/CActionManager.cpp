@@ -5,6 +5,7 @@
 namespace CActionManagerInternal
 {
 	const MyString LOOK("look");
+	const MyString TAKE("take");
 	const MyString GO("go");
 	const MyString NO_ACCTION("Oops! I do not know what do you mean!");
 }
@@ -24,6 +25,10 @@ const MyVector<MyString>& CActionManager::ParseAction(MyVector<MyString>& args)
 	else if (args[0] == CActionManagerInternal::GO)
 	{
 		m_lastOutput = m_go.DoAction(args);
+	}
+	else if (args[0] == CActionManagerInternal::TAKE)
+	{
+		m_lastOutput = m_take.DoAction(args);
 	}
 	else
 	{

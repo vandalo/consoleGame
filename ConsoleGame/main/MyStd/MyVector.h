@@ -17,6 +17,7 @@ public:
 	T* push_back(T newObject);
 	void pop_back();
 	void clear();
+	void remove(T*);
 
 	T* begin();
 	T* end();
@@ -34,6 +35,24 @@ private:
 	int m_size;
 	T* m_vector = nullptr;
 };
+
+template <class T>
+void MyVector<T>::remove(T* object)
+{
+	bool found = false;
+	for (int i = 0; i < m_size; ++i)
+	{
+		if (m_vector[i] == *object)
+		{
+			found = true;
+		}
+		if (found)
+		{
+			m_vector[i] = m_vector[i + 1];
+		}
+	}
+	--m_size;
+}
 
 template <class T>
 const T* MyVector<T>::end() const

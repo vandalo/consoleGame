@@ -16,6 +16,7 @@ public:
 	MyString GetName();
 	void AddComponent(IComponent* component);
 	void AddGameObject(CGameObject* object);
+	void RemoveGameObject(CGameObject* object);
 
 	template <class T>
 	T& GetComponent();

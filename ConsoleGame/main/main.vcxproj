@@ -155,10 +155,12 @@
   <ItemGroup>
     <ClInclude Include="Game\ActionGo.h" />
     <ClInclude Include="Game\ActionLook.h" />
+    <ClInclude Include="Game\ActionTake.h" />
     <ClInclude Include="Game\CActionManager.h" />
     <ClInclude Include="Game\CGameObject.h" />
     <ClInclude Include="Game\ComponentPlayer.h" />
     <ClInclude Include="Game\ComponentRoom.h" />
+    <ClInclude Include="Game\ComponentTakeable.h" />
     <ClInclude Include="Game\IAction.h" />
     <ClInclude Include="Game\IComponent.h" />
     <ClInclude Include="Game\ModuleInput.h" />
@@ -178,10 +180,12 @@
   <ItemGroup>
     <ClCompile Include="Game\ActionGo.cpp" />
     <ClCompile Include="Game\ActionLook.cpp" />
+    <ClCompile Include="Game\ActionTake.cpp" />
     <ClCompile Include="Game\CActionManager.cpp" />
     <ClCompile Include="Game\CGameObject.cpp" />
     <ClCompile Include="Game\ComponentPlayer.cpp" />
     <ClCompile Include="Game\ComponentRoom.cpp" />
+    <ClCompile Include="Game\ComponentTakeable.cpp" />
     <ClCompile Include="Game\IAction.cpp" />
     <ClCompile Include="Game\IComponent.cpp" />
     <ClCompile Include="Game\ModuleInput.cpp" />

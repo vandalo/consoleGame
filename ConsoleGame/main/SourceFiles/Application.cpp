@@ -5,6 +5,7 @@
 #include "Game\ComponentPlayer.h"
 #include "Game\CGameObject.h"
 #include "Game\ComponentLook.h"
+#include "Game\ComponentTakeable.h"
 
 Application::Application()
 	: m_player(nullptr)
@@ -49,6 +50,11 @@ CGameObject& Application::GetPlayer()
 	return m_player->GetGameObject();
 }
 
+ComponentPlayer& Application::GetPlayerComponent()
+{
+	return *m_player;
+}
+
 CGameObject& Application::GetCurrentRoom()
 {
 	return m_currentRoom->GetGameObject();
@@ -83,11 +89,23 @@ void Application::InitRooms()
 	m_gameObjects.push_back(room);
 	m_currentRoom = componentRoom;
 
+	//Lamp
 	CGameObject* lamp = new CGameObject("lamp");
 
 	ComponentLook* componentLookObject = new ComponentLook(*lamp, "You see an oil Lamp", false);
 	lamp->AddComponent(componentLookObject);
 
+	ComponentTakeable* componentTookableObject = new ComponentTakeable(*lamp);
+	lamp->AddComponent(componentTookableObject);
+	
 	room->AddGameObject(lamp);
+
+	//Stone
+	CGameObject* stone = new CGameObject("stone");
+
+	ComponentLook* componentLookStone = new ComponentLook(*stone, "You see an Stone, it looks super heavy!", false);
+	stone->AddComponent(componentLookStone);
+
+	room->AddGameObject(stone);
 }
 

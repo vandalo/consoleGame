@@ -4,6 +4,7 @@
 #include "MyStd\MyVector.h"
 #include "Game\ActionLook.h"
 #include "Game\ActionGo.h"
+#include "Game\ActionTake.h"
 
 class CActionManager
 {
@@ -18,4 +19,5 @@ private:
 
 	ActionLook m_look;
 	ActionGo m_go;
+	ActionTake m_take;
 };

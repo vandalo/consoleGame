@@ -1,5 +1,6 @@
-#include "Game\ActionLook.h"
 #include "SourceFiles\Application.h"
+
+#include "Game\ActionLook.h"
 #include "Game\CGameObject.h"
 #include "Game\ComponentRoom.h"
 #include "Game\ComponentLook.h"
@@ -30,7 +31,6 @@ MyVector<MyString> ActionLook::DoAction(MyVector<MyString>& args)
 			lookText = " -";
 		}
 		output.push_back(lookText + lookComponent.GetInfo());
-		//output.push_back(lookComponent.GetInfo());
 		if (lookComponent.IsRecursive())
 		{
 			for (const auto& gameObject : lookComponent.GetGameObject().GetGameObjects())

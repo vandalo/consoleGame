@@ -96,6 +96,12 @@
     <ClInclude Include="Game\ComponentLook.h">
       <Filter>Game\Component</Filter>
     </ClInclude>
+    <ClInclude Include="Game\ActionTake.h">
+      <Filter>Game\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ComponentTakeable.h">
+      <Filter>Game\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -150,6 +156,12 @@
       <Filter>Game\Actions</Filter>
     </ClCompile>
     <ClCompile Include="Game\ComponentLook.cpp">
+      <Filter>Game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ActionTake.cpp">
+      <Filter>Game\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ComponentTakeable.cpp">
       <Filter>Game\Component</Filter>
     </ClCompile>
   </ItemGroup>
