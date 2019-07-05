@@ -12,4 +12,5 @@ public:
 	MyVector<MyString> DoAction(MyVector<MyString>& args);
 
 private:
+	CGameObject* GetObjectToLook(MyVector<MyString>& args);
 };

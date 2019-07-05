@@ -18,27 +18,9 @@ ActionLook::ActionLook()
 
 MyVector<MyString> ActionLook::DoAction(MyVector<MyString>& args)
 {
+	CGameObject* object = GetObjectToLook(args);
+
 	MyVector<MyString> output;
-	CGameObject& room = Application::GetInstance().GetCurrentRoom();
-
-	CGameObject* object = nullptr;
-
-	if (args.size() > 1)
-	{
-		if (args[1] == ActionLookInternal::LOOK_ME_INPUT)
-		{
-			object = &Application::GetInstance().GetPlayer();
-		}
-		else
-		{
-			object = room.Find(args[1]);
-		}
-	}
-	else
-	{
-		object = &room;
-	}
-
 	if (object && object->HasComponent<ComponentLook>())
 	{
 		ComponentLook& lookComponent = object->GetComponent<ComponentLook>();
@@ -66,5 +48,28 @@ MyVector<MyString> ActionLook::DoAction(MyVector<MyString>& args)
 	}
 
 	return output;
+}
+
+CGameObject* ActionLook::GetObjectToLook(MyVector<MyString>& args)
+{
+	CGameObject& room = Application::GetInstance().GetCurrentRoom();
+	CGameObject* object = nullptr;
+
+	if (args.size() > 1)
+	{
+		if (args[1] == ActionLookInternal::LOOK_ME_INPUT)
+		{
+			object = &Application::GetInstance().GetPlayer();
+		}
+		else
+		{
+			object = room.Find(args[1]);
+		}
+	}
+	else
+	{
+		object = &room;
+	}
+	return object;
 }
 
