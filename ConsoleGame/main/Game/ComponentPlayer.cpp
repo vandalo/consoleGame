@@ -14,10 +14,10 @@ size_t ComponentPlayer::GetHash() const
 
 void ComponentPlayer::AddToInventory(CGameObject* object)
 {
-	m_inventory.push_back(object);
+	m_inventory.AddGameObject(object);
 }
 
-MyVector<CGameObject*>& ComponentPlayer::GetInventory()
+CGameObject& ComponentPlayer::GetInventory()
 {
 	return m_inventory;
 }

@@ -2,8 +2,8 @@
 
 #include "Game\IComponent.h"
 #include "MyStd\MyVector.h"
+#include "Game\CGameObject.h"
 
-class CGameObject;
 
 class ComponentPlayer : public IComponent
 {
@@ -12,8 +12,8 @@ public:
 	size_t GetHash() const override;
 
 	void AddToInventory(CGameObject* object);
-	MyVector<CGameObject*>& GetInventory();
+	CGameObject& GetInventory();
 
 private:
-	MyVector<CGameObject*> m_inventory;
+	CGameObject m_inventory;
 };

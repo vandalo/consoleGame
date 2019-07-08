@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Game\IComponent.h"
-#include "MyStd\MyVector.h"
-#include "MyStd\MyString.h"
 
 class ComponentRoom : public IComponent
 {

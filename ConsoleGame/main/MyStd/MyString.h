@@ -19,6 +19,7 @@ public:
 	char& operator=(char value);
 	char& operator=(MyString value);
 	bool operator==(MyString value);
+	bool operator!=(MyString value);
 	MyString& operator+(MyString value);
 
 	int size() const;

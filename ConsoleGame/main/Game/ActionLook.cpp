@@ -19,9 +19,9 @@ ActionLook::ActionLook()
 
 MyVector<MyString> ActionLook::DoAction(MyVector<MyString>& args)
 {
+	MyVector<MyString> output;
 	CGameObject* object = GetObjectToLook(args);
 
-	MyVector<MyString> output;
 	if (object && object->HasComponent<ComponentLook>())
 	{
 		ComponentLook& lookComponent = object->GetComponent<ComponentLook>();
@@ -64,6 +64,11 @@ CGameObject* ActionLook::GetObjectToLook(MyVector<MyString>& args)
 		else
 		{
 			object = room.Find(args[1]);
+		}
+
+		if (!object)
+		{
+			object = Application::GetInstance().GetPlayerComponent().GetInventory().Find(args[1]);
 		}
 	}
 	else

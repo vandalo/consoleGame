@@ -123,6 +123,11 @@ bool MyString::operator==(MyString value)
 	return eq;
 }
 
+bool MyString::operator!=(MyString value)
+{
+	return !(*this == value);
+}
+
 int MyString::size() const
 {
 	return m_size;

@@ -22,13 +22,17 @@ public:
 	CGameObject& GetPlayer();
 	ComponentPlayer& GetPlayerComponent();
 	CGameObject& GetCurrentRoom();
+	ComponentRoom* GetRoom(MyString roomName);
+	void SetRoom(ComponentRoom* newCurrentRoom);
 
 private:
 	void InitPlayer();
 	void InitRooms();
+	void AddRooms();
 
 	ComponentPlayer* m_player;
 	ComponentRoom* m_currentRoom;
+	MyVector<ComponentRoom*> m_rooms;
 	MyVector<CGameObject*> m_gameObjects;
 	CActionManager m_actionManager;
 	ModuleInput m_moduleInput;
